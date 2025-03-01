@@ -71,6 +71,29 @@ func NewPiece(pieceType PieceType, pieceColor PieceColor) Piece {
 	return Piece((uint8(pieceColor) << 7) | uint8(pieceType))
 }
 
+func (p Piece) GetPossibleMoves(b Bitboard, cb Chessboard) []Move {
+	switch p.GetType() {
+	case Pawn:
+		return p.GetPawnMoves(b, cb)
+	case Knight:
+		return p.GetKnightMoves(b, cb)
+	case Bishop:
+		return p.GetBishopMoves(b, cb)
+	case Rook:
+		return p.GetRookMoves(b, cb)
+	case Queen:
+		return p.GetQueenMoves(b, cb)
+	case King:
+		return p.GetKingMoves(b, cb)
+	}
+	return nil
+}
+
+func (p Piece) GetPawnMoves(b Bitboard, cb Chessboard) []Move {
+	moves := make([]Move, 0)
+	return moves
+}
+
 type PieceBoard struct {
 	Piece    Piece
 	Bitboard Bitboard

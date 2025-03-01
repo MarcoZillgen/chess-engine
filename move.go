@@ -5,7 +5,7 @@ type Move struct {
 	To   int
 }
 
-func (m Move) ValidPiece(fromPiece Piece, fromPos int, toPos int, toPiece Piece) bool {
+func (m Move) ValidPieces(fromPiece Piece, fromPos int, toPos int, toPiece Piece) bool {
 	switch fromPiece.GetType() {
 	case Pawn:
 		return (fromPiece.IsBlack() &&

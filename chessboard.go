@@ -23,7 +23,7 @@ func (cb Chessboard) ValidateMove(move Move) bool {
 	}
 
 	// check wether this movement is applicable for the given piece
-	return move.ValidPiece(fromPiece, move.From, move.To, toPiece)
+	return move.ValidPieces(fromPiece, move.From, move.To, toPiece)
 }
 
 type Chessboard struct {
